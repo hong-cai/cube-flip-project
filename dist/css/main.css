@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Set-up */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 100%;
+  -webkit-perspective: 1000px;
+  /* <-NB */
+}
+
+section {
+  height: 100vh;
+}
+
+.blur-bg {
+  background: url(./img/mirror-edge-com.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+}
+
+.screen-carousel-1 {
+  width: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -webkit-perspective: 1000px;
+  /* The two faces of the one-screen */
+  /* Position the faces */
+  /* Rotate the one-screen */
+}
+.screen-carousel-1 .one-screen {
+  width: 200px;
+  margin: 0 auto;
+  height: 200px;
+  transition: transform 0.33s;
+  transform-style: preserve-3d;
+}
+.screen-carousel-1 .up-image,
+.screen-carousel-1 .down-image {
+  height: 200px;
+  width: 200px;
+}
+.screen-carousel-1 .up-image {
+  transform: translateZ(100px);
+}
+.screen-carousel-1 .down-image {
+  transform: rotateX(-90deg) translateZ(-100px);
+}
+.screen-carousel-1 .one-screen:hover {
+  transform: rotateX(90deg);
+}
+
+/* single cube */
+.scene {
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  perspective: 1000px;
+}
+
+.cube {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 1s;
+}
+
+.cube.show-front {
+  transform: translateZ(-200px) rotateY(0deg);
+}
+
+.cube.show-right {
+  transform: translateZ(-200px) rotateY(-90deg);
+}
+
+.cube.show-back {
+  transform: translateZ(-200px) rotateY(-180deg);
+}
+
+.cube.show-left {
+  transform: translateZ(-200px) rotateY(90deg);
+}
+
+.cube.show-top {
+  transform: translateZ(-200px) rotateX(-90deg);
+}
+
+.cube.show-bottom {
+  transform: translateZ(-200px) rotateX(90deg);
+}
+
+.cube__face {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  line-height: 200px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.cube__face--front {
+  background: url(./img/me-blue-com.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cube__face--right {
+  background: url(./img/me-main.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cube__face--back {
+  background: url(./img/me-white.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cube__face--left {
+  background: url(./img/me-xmas.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cube__face--top {
+  background: url(./img/me-common.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cube__face--bottom {
+  background: url(./img/me-grey.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cube__face--front {
+  transform: rotateY(0deg) translateZ(200px);
+}
+
+.cube__face--right {
+  transform: rotateY(90deg) translateZ(200px);
+}
+
+.cube__face--back {
+  transform: rotateY(180deg) translateZ(200px);
+}
+
+.cube__face--left {
+  transform: rotateY(-90deg) translateZ(200px);
+}
+
+.cube__face--top {
+  transform: rotateX(90deg) translateZ(200px);
+}
+
+.cube__face--bottom {
+  transform: rotateX(-90deg) translateZ(200px);
+}
+
+label {
+  margin-right: 10px;
+}

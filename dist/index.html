@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 5px;
+        }
+        
+        @keyframes twinkle {
+            0% {
+                transform: scale(1, 1);
+                background: rgba(255, 255, 255, 0);
+                animation-timing-function: linear;
+            }
+            40% {
+                transform: scale(0.8, 0.8);
+                background: rgba(255, 255, 255, 1);
+                animation-timing-function: ease-out;
+            }
+            80% {
+                background: rgba(255, 255, 255, 0);
+                transform: scale(1, 1);
+            }
+            100% {
+                background: rgba(255, 255, 255, 0);
+                transform: scale(1, 1);
+            }
+        }
+    </style>
+<link href="./css/main.css" rel="stylesheet"></head>
+
+<body>
+    <div class="blur-bg"></div>
+    <section>
+        <div class="scene">
+            <div class="cube">
+                <div class="cube__face cube__face--front">front</div>
+                <div class="cube__face cube__face--back">back</div>
+                <div class="cube__face cube__face--right">right</div>
+                <div class="cube__face cube__face--left">left</div>
+                <div class="cube__face cube__face--top">top</div>
+                <div class="cube__face cube__face--bottom">bottom</div>
+            </div>
+        </div>
+        <p class="radio-group">
+            <label>
+          <input type="radio" name="rotate-cube-side" value="front" checked /> front
+        </label>
+            <label>
+          <input type="radio" name="rotate-cube-side" value="right" /> right
+        </label>
+            <label>
+          <input type="radio" name="rotate-cube-side" value="back" /> back
+        </label>
+            <label>
+          <input type="radio" name="rotate-cube-side" value="left" /> left
+        </label>
+            <label>
+          <input type="radio" name="rotate-cube-side" value="top" /> top
+        </label>
+            <label>
+          <input type="radio" name="rotate-cube-side" value="bottom" /> bottom
+        </label>
+        </p>
+    </section>
+    <section class="homescreen m-0 flex flex-col w-screen justify-center bg-gray-800 h-screen text-gray-100 ">
+
+        <nav>
+            <ul class="flex justify-between text-xl py-8 px-8 md:px-48 ">
+                <li>
+                    Cube Carousel 1
+                </li>
+            </ul>
+        </nav>
+
+        <!-- <h1 class="text-6xl  my-auto mx-auto  md:mx-48 ">
+            Delightful <br />
+            <span class="text-teal-400">Web Templates.</span>
+        </h1> -->
+        <div class="screen-carousel-1">
+            <div class="one-screen">
+                <div class="up-image">
+                </div>
+                <div class="down-image">
+                </div>
+            </div>
+            <div class="one-screen">
+                <div class="up-image">
+                </div>
+                <div class="down-image">
+                </div>
+            </div>
+            <div class="one-screen">
+                <div class="up-image">
+                </div>
+                <div class="down-image">
+                </div>
+            </div>
+            <div class="one-screen">
+                <div class="up-image">
+                </div>
+                <div class="down-image">
+                </div>
+            </div>
+            <div class="one-screen">
+                <div class="up-image">
+                </div>
+                <div class="down-image">
+                </div>
+            </div>
+            <div class="one-screen">
+                <div class="up-image">
+                </div>
+                <div class="down-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script src="./js/main.js"></script></body>
+
+</html>
