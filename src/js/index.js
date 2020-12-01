@@ -1,4 +1,3 @@
-console.log('in js');
 import 'jquery';
 
 

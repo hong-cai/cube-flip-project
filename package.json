@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode=devvelopment --config webpack.config.js",
-    "build": "rm -rf dist && webpack --config webpack.config.dev.js -w"
+    "build": "rm -rf dist && webpack --config webpack.config.dev.js -w",
+    "deploy": "gh-pages -d build"
   },
-  "author": "",
+  "author": "Sophie",
   "license": "ISC",
+  "homepage":"https://hong-cai.github.io/cube-flip",
   "dependencies": {
     "autoprefixer": "^9.8.6",
     "file-loader": "^6.2.0",
@@ -29,6 +31,7 @@
     "css-loader": "^5.0.1",
     "exports-loader": "^1.1.1",
     "expose-loader": "^1.0.1",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.5.0",
     "mini-css-extract-plugin": "^1.3.1",
     "node-sass": "^5.0.0",
