@@ -10,7 +10,7 @@
   },
   "author": "Sophie",
   "license": "ISC",
-  "homepage":"https://hong-cai.github.io/cube-flip",
+  "homepage":"http://hong-cai.github.io/cube-flip",
   "dependencies": {
     "autoprefixer": "^9.8.6",
     "file-loader": "^6.2.0",
