@@ -226,7 +226,7 @@ function flipCube() {
 
 document.addEventListener('DOMContentLoaded', function () {
     window.onload = function () {
-        // window.requestAnimationFrame(flipCube);
+        window.requestAnimationFrame(flipCube);
         // start endless run
         // start the flipCube
         // let endless = gsap.delayedCall(0, flipCube);
