@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        .navbar-toggler .fa-bars {
+            display: initial;
+        }
+        
+        .navbar-toggler.collapsed>.fa-times {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <a class="navbar-brand heading-black" href="index.html">
+            <img src="img/logo.png" class="logo" alt="Logo" />CineFi.Network
+        </a>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-times"></i>
+                <i class="fas fa-bars"></i>
+            </button>
+    </nav>
+    <div class="slider" style="width:670px;height:245px;margin:100px auto 0;">
+        <div style="position: relative">
+
+            <div id="images" class="images" style="position:relative;min-height:100px;width:670px;height:245px;">
+
+                <div id="screen-carousel-1" class="screen-carousel-1" style="
+									z-index: 101; 
+									width: 600px; 
+									height: 200px; 
+									position: absolute; 
+									top: 0px; 
+									left: 0px; 
+									cursor: auto;
+                                    border:1px solid red;" data-active-image="url('I:\xampp\htdocs\cube-flip\src\img\mirror-edge-com.jpg')">
+                    <div style="width: 600px; height: 200px; position: relative; perspective: 1000px; perspective-origin: 50% 50%;" class="cube-wrapper">
+                        <div style="
+													width: 200px; 
+													height: 200px; 
+													position: absolute; 
+													top: 0px; 
+													left: 0px; 
+													z-index: 100; 
+													transform-style: preserve-3d;" id="cube-0" class="cube">
+                            <div style="
+														width: 200px; 
+														height: 100%; 
+														position: absolute; 
+														top: 0px; 
+														left: 0px; 
+														z-index: 100; 
+														background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/2d.jpg&quot;); background-position: 0px 0px; 
+														background-repeat: no-repeat; 
+														backface-visibility: hidden; 
+														transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);" class="face face-front"></div>
+                            <div style="
+														width: 200px; 
+														height: 100%; 
+														position: absolute; 
+														top: 0px; 
+														left: 0px; 
+														z-index: 100; 
+														background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/3d.jpg&quot;); background-position: 0px 0px; 
+														background-repeat: no-repeat; 
+														backface-visibility: hidden; 
+														transform: rotate3d(1, 0, 0, 90deg) translate3d(0px, -122.5px, 122.5px);" class="face face-top"></div>
+                            <div style="width: 200px; 
+														height: 200px;
+														position: absolute; 
+														top: 0px; 
+														left: 0px; 
+														z-index: 99; 
+                                                        background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/3d.jpg&quot;); 
+                                                        background-position: 0px 0px; 
+														backface-visibility: hidden; 
+														transform: rotate3d(0, 1, 0, 90deg) translate3d(122.5px, 0px, -122.5px) rotate3d(0, 1, 0, 180deg);" class="face face-left"></div>
+
+                        </div>
+                        <div style="
+												width: 200px; 
+												height: 200px; 
+												position: absolute; 
+												top: 0px; 
+												left: 200px; 
+												z-index: 100; 
+												transform-style: preserve-3d;" id="cube-1" class="cube">
+                            <div style="width: 200px; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/2d.jpg&quot;); background-position: -200px 0px; background-repeat: no-repeat; backface-visibility: hidden; transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);"
+                                class="face face-front"></div>
+                            <div style="width: 200px; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/3d.jpg&quot;); background-position: -200px 0px; background-repeat: no-repeat; backface-visibility: hidden; transform: rotate3d(1, 0, 0, 90deg) translate3d(0px, -122.5px, 122.5px);"
+                                class="face face-top"></div>
+                            <div style="width: 245px; height: 245px; position: absolute; top: 0px; left: 0px; z-index: 99; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/2d.jpg&quot;); background-position: -200px 0px; backface-visibility: hidden; transform: rotate3d(0, 1, 0, 90deg) translate3d(122.5px, 0px, -122.5px) rotate3d(0, 1, 0, 180deg);"
+                                class="face face-left"></div>
+                            <div style="width: 245px; height: 245px; position: absolute; top: 0px; left: 0px; z-index: 99; backface-visibility: hidden; transform: rotate3d(0, 1, 0, 90deg) translate3d(122.5px, 0px, 11.5px);" class="face face-right"></div>
+                        </div>
+                        <div style="width: 200px; height: 200px; position: absolute; top: 0px; left: 400px; z-index: 100; transform-style: preserve-3d;" id="cube-2" class="cube">
+                            <div style="width: 200px; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/2d.jpg&quot;); background-position: -400px 0px; background-repeat: no-repeat; backface-visibility: hidden; transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);"
+                                class="face face-front"></div>
+                            <div style="width: 200px; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/3d.jpg&quot;); background-position: -400px 0px; background-repeat: no-repeat; backface-visibility: hidden; transform: rotate3d(1, 0, 0, 90deg) translate3d(0px, -122.5px, 122.5px);"
+                                class="face face-top"></div>
+                            <div style="width: 245px; height: 245px; position: absolute; top: 0px; left: 0px; z-index: 99; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/2d.jpg&quot;); background-position: -400px 0px;backface-visibility: hidden; transform: rotate3d(0, 1, 0, 90deg) translate3d(122.5px, 0px, -122.5px) rotate3d(0, 1, 0, 180deg);"
+                                class="face face-left"></div>
+                            <div style="width: 245px; height: 245px; position: absolute; top: 0px; left: 0px; z-index: 99; backface-visibility: hidden; transform: rotate3d(0, 1, 0, 90deg) translate3d(122.5px, 0px, 11.5px);" class="face face-right"></div>
+                        </div>
+                        <!-- <div style="width: 200px; height: 245px; position: absolute; top: 0px; left: 402px; z-index: 97; transform-style: preserve-3d;" id="cube-3" class="cube">
+                            <div style="width: 200px; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/2d.jpg&quot;); background-position: -402px 0px; background-repeat: no-repeat; backface-visibility: hidden; transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);"
+                                class="face face-front"></div>
+                            <div style="width: 200px; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/3d.jpg&quot;); background-position: -402px 0px; background-repeat: no-repeat; backface-visibility: hidden; transform: rotate3d(1, 0, 0, 90deg) translate3d(0px, -122.5px, 122.5px);"
+                                class="face face-top"></div>
+                            <div style="width: 245px; height: 245px; position: absolute; top: 0px; left: 0px; z-index: 99; backface-visibility: hidden; transform: rotate3d(0, 1, 0, 90deg) translate3d(122.5px, 0px, -122.5px) rotate3d(0, 1, 0, 180deg);" class="face face-left"></div>
+                            <div style="width: 245px; height: 245px; position: absolute; top: 0px; left: 0px; z-index: 99; backface-visibility: hidden; transform: rotate3d(0, 1, 0, 90deg) translate3d(122.5px, 0px, 11.5px);" class="face face-right"></div>
+                        </div>
+                        <div style="width: 200px; height: 245px; position: absolute; top: 0px; left: 536px; z-index: 96; transform-style: preserve-3d;" id="cube-4" class="cube">
+                            <div style="width: 200px; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/2d.jpg&quot;); background-position: -536px 0px; background-repeat: no-repeat; backface-visibility: hidden; transform: rotate3d(0, 0, 0, 0deg) translate3d(0px, 0px, 0px);"
+                                class="face face-front"></div>
+                            <div style="width: 134px; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/3d.jpg&quot;); background-position: -536px 0px; background-repeat: no-repeat; backface-visibility: hidden; transform: rotate3d(1, 0, 0, 90deg) translate3d(0px, -122.5px, 122.5px);"
+                                class="face face-top"></div>
+                            <div style="width: 245px; height: 245px; position: absolute; top: 0px; left: 0px; z-index: 99; backface-visibility: hidden; transform: rotate3d(0, 1, 0, 90deg) translate3d(122.5px, 0px, -122.5px) rotate3d(0, 1, 0, 180deg);" class="face face-left"></div>
+                            <div style="width: 245px; height: 245px; position: absolute; top: 0px; left: 0px; z-index: 99; backface-visibility: hidden; transform: rotate3d(0, 1, 0, 90deg) translate3d(122.5px, 0px, 11.5px);" class="face face-right"></div>
+                        </div> -->
+                    </div>
+                </div>
+                <div id="image2" class="image2" style="z-index: 100; background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/3d.jpg&quot;); width: 670px; height: 245px; position: absolute; top: 0px; left: 0px; cursor: auto; display: none;">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            // selectors
+            var $image1 = $("#screen-carousel-1");
+
+            // $(".face-left", $image1).add(".face-right", $image1).css({
+            //     "backgroundColor": "#222"
+            // });
+
+            var height = $image1.height(),
+                $cubes = $image1.find(".cube"),
+                cubeHeight = (height / 2);
+            console.log('height: ' + height)
+            console.log('cubeHeight: ' + cubeHeight)
+
+            var tl = new TimelineMax({
+                repeat: -1,
+                yoyo: true,
+                paused: true
+            });
+
+            tl.staggerTo($cubes, 2, {
+                css: {
+                    rotationX: -90,
+                    x: 0,
+                    y: cubeHeight,
+                    z: "-" + cubeHeight
+                },
+                ease: Power1.easeInOut
+            }, 0.22);
+
+            $(window).on("load", function() {
+                window.requestAnimationFrame(function() {
+                    tl.progress(0).progress(0.1);
+                    tl.play(0);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -5,7 +5,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 const regeneratorRuntime = require("regenerator-runtime");
 //All Configurations Go In Module Object
 module.exports = {
-    entry: ['./src/js/index.js', './src/css/style.scss'],
+    entry: ['./src/js/index.js', './src/css/style.scss', './src/css/tailwind.css'],
     watch: true,
     // watchOptions:{
     //     aggregationTimeout:500,
@@ -22,7 +22,7 @@ module.exports = {
     //     liveReload: false
     // },
     plugins: [
-                   new MiniCssExtractPlugin(
+        new MiniCssExtractPlugin(
             {
                 filename: "./css/[name].css"
             }
@@ -35,43 +35,67 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(
             { multiStep: true }
         ),
-        
+
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader',
-                {
-                    loader:'css-loader',options:{importLoaders:1}
-                },
-                'postcss-loader'],
-              },
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    // 'style-loader',replaced with minicssextractplugin
+                    //interprete css into js understands
+                    {
+                        loader: 'css-loader',
+                        options: { importLoaders: 1 }
+                    },
+                    //This comes first,interprete postcss
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        require('tailwindcss'),
+                                        require('autoprefixer')
+                                    ],
+                                ],
+                            },
+                        }
+                    }],
+            },
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: ''
+                        },
+                    },
+
+
                     // 'style-loader',
                     {
-                      loader: 'css-loader',
-                      options: {
-                        // Run `postcss-loader` on each CSS `@import`, do not forget that `sass-loader` compile non CSS `@import`'s into a single file
+                        loader: 'css-loader',
+                        options: {
+                            // Run `postcss-loader` on each CSS `@import`, do not forget that `sass-loader` compile non CSS `@import`'s into a single file
 
-                        // If you need run `sass-loader` and `postcss-loader` on each CSS `@import` please set it to `2`
-                        importLoaders: 2,
-                        // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
-                        modules: { auto: true },
-                      },
+                            // If you need run `sass-loader` and `postcss-loader` on each CSS `@import` please set it to `2`
+                            importLoaders: 2,
+                            // Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
+                            modules: { auto: true },
+                        },
                     },
 
                     {
-                      loader: 'sass-loader',
-                      options: {
-                      webpackImporter: false,
-                      sassOptions: {
-                     includePaths: ['node_modules'],
-                    },
-                    },
+                        loader: 'sass-loader',
+                        options: {
+                            webpackImporter: false,
+                            sassOptions: {
+                                includePaths: ['node_modules'],
+                            },
+                        },
                     },
 
                 ],
@@ -84,15 +108,14 @@ module.exports = {
                     options: {
                         presets: [
                             [
-                              '@babel/preset-env',
-                              {
-                                targets: {
-                                  esmodules: true,
+                                '@babel/preset-env',
+                                {
+                                    targets: {
+                                        esmodules: true,
+                                    },
                                 },
-                              },
                             ],
-                          ],
-
+                        ],
                     }
                 }
             },

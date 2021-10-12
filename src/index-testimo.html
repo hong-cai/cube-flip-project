@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: grey;
+        }
+        
+        #slider {
+            position: relative;
+            width: 430px;
+            height: 300px;
+            margin: 50px;
+            background-color: #717171;
+            /* overflow: hidden; */
+            visibility: hidden;
+            cursor: pointer;
+        }
+        
+        .cart {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 340px;
+            height: 100px;
+            background: #548254;
+            padding-left: 10px;
+            font-family: sans-serif;
+            color: #c5c5c5;
+            font-size: 95px;
+            font-weight: 800;
+            line-height: 100px;
+            z-index: 1;
+            border: 1px solid #8c8c8c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="slider">
+
+
+        <div class="one cart">ONE</div>
+        <div class="two cart">TWO</div>
+        <div class="three cart">THREE</div>
+        <div class="four cart">FOUR</div>
+
+    </div>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script>
+        // = slider intro =========
+        var imgs = gsap.utils.toArray(".cart"),
+            noImgs = imgs.length,
+            next = 3, // time to change
+            endless;
+
+        function crossfade() {
+
+            var action = gsap.timeline()
+
+            .to(imgs[0], {
+                    x: 20,
+                    y: 25,
+                    duration: 1,
+                    backgroundColor: '#548254'
+                })
+                .set(imgs[0], {
+                    zIndex: 1
+                }, 0.2)
+
+            .set(imgs[1], {
+                    zIndex: 2
+                }, 0.1)
+                .to(imgs[1], {
+                    x: 60,
+                    duration: 1,
+                    backgroundColor: 'green'
+                }, 0.1)
+                .to(imgs[1], {
+                    y: 100,
+                    duration: 1,
+                }, 0.3)
+
+            .to(imgs[2], {
+                x: 20,
+                y: 175,
+                duration: 1,
+                opacity: 1
+            }, 0.1)
+
+            .to(imgs[3], {
+                    x: 20,
+                    y: -125,
+                    duration: 1,
+                    opacity: 0.2
+                }, 0)
+                .set(imgs[3], {
+                    x: 20,
+                    y: 300
+                })
+
+            .to('#slider', {
+                autoAlpha: 1
+            })
+
+            imgs.push(imgs.shift());
+
+
+            // start endless run
+            endless = gsap.delayedCall(next, crossfade);
+
+        }
+
+        // start the crossfade
+        endless = gsap.delayedCall(0, crossfade);
+
+        // hover =================
+        var hover = document.querySelector("#slider");
+
+        hover.addEventListener("mouseenter", function() {
+            endless.kill();
+        });
+        hover.addEventListener("mouseleave", function() {
+            endless = gsap.delayedCall(1, crossfade);
+        });
+    </script>
+</body>
+
+</html>

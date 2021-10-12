@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .tiles-container {
+            width: 750px;
+            height: 468px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            perspective: 400px;
+            cursor: pointer;
+        }
+        
+        .tiles-container:before {
+            content: 'CLICK';
+            color: #777;
+            letter-spacing: 1px;
+            font-size: 10px;
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        
+        .tiles-container img {
+            height: auto;
+            width: 100%;
+            opacity: 0;
+        }
+        
+        .tiles-container div {
+            position: absolute;
+            z-index: 1;
+            background-repeat: no-repeat;
+            transform: rotateY(-50deg) scale(0.5);
+            opacity: 0;
+            transform-origin: bottom;
+            transition: all 0.6s cubic-bezier(0.71, 0.05, 0.09, 0.91);
+        }
+        
+        .tiles-container.active div {
+            opacity: 1;
+            transform: rotateY(180deg) translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+
+Follow me on
+Twitter: https://twitter.com/supahfunk
+Dribbble: https://dribbble.com/supahfunk
+
+Sai chi ti saluta tantissimo?
+
+-->
+
+    <div class="tiles-container">
+        <img src="https://github.com/supahfunk/supah-codepen/blob/master/stcz-1.png?raw=true" />
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        var Split = function() {
+            this.$t = $(".tiles-container");
+            this.gridX = 6;
+            this.gridY = 4;
+            this.w = this.$t.width();
+            this.h = this.$t.height();
+            this.img = $("img", this.$t).attr("src");
+            this.delay = 0.05;
+
+            this.create = function() {
+                $("div", this.$t).remove();
+
+                for (x = 0; x < this.gridX; x++) {
+                    for (y = 0; y < this.gridY; y++) {
+                        var width = this.w / this.gridX * 101 / this.w + "%",
+                            height = this.h / this.gridY * 101 / this.h + "%",
+                            top = this.h / this.gridY * y * 100 / this.h + "%",
+                            left = this.w / this.gridX * x * 100 / this.w + "%",
+                            bgPosX = -(this.w / this.gridX * x) + "px",
+                            bgPosY = -(this.h / this.gridY * y) + "px";
+
+                        $("<div />")
+                            .css({
+                                top: top,
+                                left: left,
+                                width: width,
+                                height: height,
+                                backgroundImage: "url(" + this.img + ")",
+                                backgroundPosition: bgPosX + " " + bgPosY,
+                                backgroundSize: this.w + "px",
+                                transitionDelay: x * this.delay + y * this.delay + "s"
+                            })
+                            .appendTo(this.$t);
+                    }
+                }
+            };
+
+            this.create();
+
+            this.$t
+                .on("click", function() {
+                    $(this).toggleClass("active");
+                })
+                .click();
+        };
+
+        window.onload = function() {
+            var split = new Split();
+            var gui = (function datgui() {
+                var gui = new dat.GUI();
+                gui.add(split, "gridX", 1, 20).step(1).onChange(function(newValue) {
+                    split.create();
+                });
+                gui.add(split, "gridY", 1, 20).step(1).onChange(function(newValue) {
+                    split.create();
+                });
+                gui.add(split, "delay", 0, 0.3).step(0.01).onChange(function(newValue) {
+                    split.create();
+                });
+                return gui;
+            })();
+        };
+    </script>
+</body>
+
+</html>

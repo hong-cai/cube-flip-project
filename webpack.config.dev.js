@@ -1,6 +1,6 @@
 const common = require('./webpack.common');
 const path = require('path'); //Path Module from Node.js,Create Relative Route
-const  merge  = require('webpack-merge');
+const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -12,14 +12,14 @@ module.exports = merge(common, {
     mode: 'development',
     output: {
         filename: "./js/[name].js",
-        path: path.resolve(__dirname, "dist"), //Distribution Folder
+        path: path.resolve(__dirname, "dist"),
         hotUpdateChunkFilename: 'hot/hot-update.js',
         hotUpdateMainFilename: 'hot/hot-update.json'
     },
     plugins: [
         new HtmlWebpackPlugin(
             {
-                title: "Image Upload Crop Resize Javascript Project",
+                title: "Image Upload Crop Resize Flip Javascript Project",
                 template: path.resolve("./src/index.html"),
                 filename: "index.html",
             }
